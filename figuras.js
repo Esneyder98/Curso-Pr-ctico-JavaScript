@@ -1,10 +1,13 @@
 // Codigo del Cuadrado
-console.group("Cuadrados")
+console.group("Cuadrados");
 
-const perimetroCuadrado =(lado) => lado*4;
+const perimetroCuadrado=lado => lado * 4;
 
-const areaCuadrado = (lado) => lado**2
-console.groupEnd()
+
+const areaCuadrado = lado => lado * lado;
+
+
+console.groupEnd();
 
 // Codigo del Triangulo
 console.group("Triangulo")
@@ -27,3 +30,20 @@ const perimetroCirculo = (radio) => diametroCirculo(radio) *PI;
 //Area
 const areaCirculo = (radio) => (radio * radio) *PI;
 console.groupEnd()
+
+
+// Aquí interactuamos con el HTML
+function calcularPerimetroCuadrado() {
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+  
+    const perimetro = perimetroCuadrado(value);
+    alert(perimetro);
+  }
+  function calcularAreaCuadrado() {
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+  
+    const area = areaCuadrado(value);
+    alert(area);
+  }
