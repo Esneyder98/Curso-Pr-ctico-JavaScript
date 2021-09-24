@@ -25,14 +25,20 @@ function calcularPrecioDescuento() {
     const inputCupon = document.getElementById("InputCoupon");
     const cuponValue = inputCupon.value;
 
-    const ValidarCupon = function(cupones){
-        const validar = cupones.find(clave=>{return clave.name===cuponValue
-        })
-        return validar.descuento
-    }
-        const PrecioDescuento = calcularPrecioConDescuento(valuePrecio,ValidarCupon(coupons));
+    const isCouponValueValid = function (coupon) {
+        return coupon.name === cuponValue;
+    };
     
-        const resulP=document.getElementById("ResultP")
-        resulP.innerText="El precio con descuento es $" +PrecioDescuento
+    const userCoupon = coupons.find(isCouponValueValid);
+    
+    if (!userCoupon) {
+        alert("El cupón " + cuponValue + " no es válido");
+    }else{
+        const descuento = userCoupon.descuento;
+        const precioConDescuento = calcularPrecioConDescuento(valuePrecio, descuento);
+
+        const resultP = document.getElementById("ResultP");
+        resultP.innerText = "El precio con descuento son: $" + precioConDescuento;
+    }
  
   }
